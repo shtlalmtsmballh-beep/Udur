@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>موقع متكامل</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f9f9f9;
+            color: #333;
+        }
+        header {
+            background-color: #222;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #444;
+            overflow: auto;
+            white-space: nowrap;
+        }
+        nav a {
+            display: inline-block;
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        main {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        section {
+            margin-bottom: 40px;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 8px rgba(0,0,0,0.1);
+        }
+        footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>موقع إلكتروني متكامل</h1>
+        <p>مرحبا بكم في موقعنا الإلكتروني المتكامل</p>
+    </header>
+    <nav>
+        <a href="#home">الرئيسية</a>
+        <a href="#services">الخدمات</a>
+        <a href="#products">المنتجات</a>
+        <a href="#about">من نحن</a>
+        <a href="#contact">اتصل بنا</a>
+    </nav>
+    <main>
+        <section id="home">
+            <h2>الرئيسية</h2>
+            <p>هذا القسم الرئيسي للموقع حيث يمكنك عرض محتوى الترحيب وأهم المعلومات.</p>
+            <button onclick="alert('شكراً لزيارتكم!')">اضغط هنا</button>
+        </section>
+        <section id="services">
+            <h2>الخدمات</h2>
+            <p>نعرض خدماتنا المتنوعة هنا.</p>
+        </section>
+        <section id="products">
+            <h2>المنتجات</h2>
+            <p>تعرف على أفضل منتجاتنا.</p>
+        </section>
+        <section id="about">
+            <h2>من نحن</h2>
+            <p>معلومات عن الشركة وفريق العمل.</p>
+        </section>
+        <section id="contact">
+            <h2>اتصل بنا</h2>
+            <p>يمكنك التواصل معنا عبر المعلومات التالية.</p>
+        </section>
+    </main>
+    <footer>
+        © 2025 جميع الحقوق محفوظة
+    </footer>
+    <script>
+        // يمكن اضافة جافاسكريبت لتفاعل اكثر مع المستخدم
+    </script>
+</body>
+</html>
+<!-- إضافة في قسم main بالموقع -->
+<section id="register-login">
+    <h2>إنشاء حساب / تسجيل دخول</h2>
+
+    <div id="register">
+        <h3>تسجيل حساب جديد</h3>
+        <form id="registerForm">
+            <input type="text" id="regUsername" placeholder="اسم المستخدم" required /><br/>
+            <input type="password" id="regPassword" placeholder="كلمة المرور" required /><br/>
+            <button type="submit">تسجيل</button>
+        </form>
+    </div>
+
+    <div id="login" style="margin-top:20px;">
+        <h3>تسجيل دخول</h3>
+        <form id="loginForm">
+            <input type="text" id="loginUsername" placeholder="اسم المستخدم" required /><br/>
+            <input type="password" id="loginPassword" placeholder="كلمة المرور" required /><br/>
+            <button type="submit">دخول</button>
+        </form>
+    </div>
+
+    <p id="message"></p>
+</section>
+
+<script>
+    const users = {};
+
+    document.getElementById('registerForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const username = document.getElementById('regUsername').value;
+        const password = document.getElementById('regPassword').value;
+
+        if(users[username]) {
+            document.getElementById('message').textContent = 'اسم المستخدم مستخدم من قبل.';
+        } else {
+            users[username] = password;
+            document.getElementById('message').textContent = 'تم التسجيل بنجاح.';
+        }
+    });
+
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const username = document.getElementById('loginUsername').value;
+        const password = document.getElementById('loginPassword').value;
+
+        if(users[username] && users[username] === password) {
+            document.getElementById('message').textContent = 'تم تسجيل الدخول بنجاح.';
+        } else {
+            document.getElementById('message').textContent = 'اسم المستخدم أو كلمة المرور غير صحيحة.';
+        }
+    });
+</script>
